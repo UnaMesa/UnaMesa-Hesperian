@@ -46,10 +46,11 @@ config.macros.TiddlySpaceRegister.register = function(username, password, form) 
 					//console.log("subscription success");
 					var bag = new tiddlyweb.Bag(username+"_public", window.iframeCommsTarget),
 						tiddler = new tiddlyweb.Tiddler("DefaultTiddlers", bag);
-					tiddler.text = "GettingStarted\n[[Your Handbooks]]";
+					tiddler.text = "Welcome\n[[Custom Health Materials]]\n[[Example Health Materials]]\n";
 					tiddler.put(function() {
 						//console.log("DefaultTiddlers success");
-						window.location = window.location.protocol+"//"+username+"."+parentHost;	
+						//window.location = window.location.protocol+"//"+username+"."+parentHost;	
+                                                tsl.redirect();
 					}, function() {
 						//console.log("DefaultTiddlers failure");
 					});

@@ -10,7 +10,9 @@ config.macros.handbook = {
 			pages = params.pages,
 			topics = params.topics,
 			mine = params.mine,
+                        fullhost = window.location.host,
 			host = window.location.host.split(".").splice(1).join(".");
+                if(fullhost.toLowerCase() == 'healthmaterials.org') { host = fullhost; }; // SPECIAL CASE FOR 'frontpage'
 		if(mine || !paramString) {
 			$.ajax({
 				url: '/spaces?mine=1',
@@ -18,7 +20,7 @@ config.macros.handbook = {
 				success: function(data) {
 					var list = [],
 						out,
-						emptyString = "you do not have any handbooks";
+						emptyString = "you have not created any custom health materials yet";
 						username = config.extensions.tiddlyweb.username;
 					if(data && data.length) {
 						$(data).each(function() {
